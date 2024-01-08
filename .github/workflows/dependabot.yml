@@ -4,8 +4,15 @@ updates:
     directory: /
     schedule:
       interval: daily
+    on:
+      push:
+        branches:
+          - master
 
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: daily
+    on:
+      schedule:
+        - cron: "0 0 * * *"
