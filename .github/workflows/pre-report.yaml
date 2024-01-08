@@ -18,7 +18,7 @@ permissions:
 jobs:
   add-pr-report-as-comment:
     runs-on: ubuntu-latest
-    name: Generate report and add it as comment to the PR
+    name: Generate report and add it as a comment to the PR
     steps:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
@@ -30,8 +30,5 @@ jobs:
           ShowTimeToMergeAfterLastReview: 'no'
         env:
           GITHUB_TOKEN: ${{ github.token }}
-      # Instead of printing the path to the console you can upload the file
-      # with curl to a central service to collect all the data for further
-      # processing
       - name: Print path of raw data json file
-        run: echo "Report path: ${{ steps.generate_report.outputs.json_report_path }}"
+        run: echo "Report path = ${{ steps.generate_report.outputs.json_report_path }}"
